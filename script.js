@@ -11,4 +11,4 @@ let numMultiplication = numArray.reduce(function (result, num) {
 
 console.log(numMultiplication);
 console.log(numMultiplication ** 3);
-console.log(String(numMultiplication ** 3).substr(0, 4));
+console.log(String(numMultiplication ** 3).substr(0, 2));
