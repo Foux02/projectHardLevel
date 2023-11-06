@@ -1,5 +1,5 @@
 // Начинаем сложный уровень в dev. У первого урока не было сложного уровня
-
+"use strict";
 const num = 266219;
 let numArray = String(num).split("").map(Number);
 
