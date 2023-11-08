@@ -1,21 +1,9 @@
 // Начинаем сложный уровень в dev. У первого урока не было сложного уровня
 "use strict";
-const num = 266219;
-let numArray = String(num).split("").map(Number);
-
-console.log(numArray);
-
-let numMultiplication = numArray.reduce(function (result, num) {
-  return result * num;
-}, 1);
-
-console.log(numMultiplication);
-console.log(numMultiplication ** 3);
-console.log(String(numMultiplication ** 3).slice(0, 2));
-
-//Урок №3
 
 const lang = document.documentElement.lang;
+
+const num = 266219;
 const dayWeekRu = [
   "Воскресенье",
   "Понедельник",
@@ -34,6 +22,10 @@ const dayWeekEn = [
   "Friday",
   "Saturday",
 ];
+let numArray = String(num).split("").map(Number);
+let numMultiplication = numArray.reduce(function (result, num) {
+  return result * num;
+}, 1);
 let nowDayWeek = new Date();
 
 if (lang == "ru") {
@@ -75,3 +67,8 @@ namePerson == "Артем"
   : namePerson == "Александр"
   ? console.log("Преподаватель")
   : console.log("Студент");
+
+console.log(numArray);
+console.log(numMultiplication);
+console.log(numMultiplication ** 3);
+console.log(String(numMultiplication ** 3).slice(0, 2));
