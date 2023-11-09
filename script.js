@@ -28,19 +28,6 @@ let numMultiplication = numArray.reduce(function (result, num) {
   return result * num;
 }, 1);
 let nowDayWeek = new Date();
-let title = " Океан789012345678901234567890123 ";
-
-// Урок №4
-
-const argumentString = function (funTitle) {
-  if (typeof funTitle !== "string") {
-    return alert(`Ваша пеменная title = ${funTitle}. Это не строка.`);
-  } else {
-    return funTitle.length > 30
-      ? funTitle.trim().slice(0, 30) + "..."
-      : funTitle.trim();
-  }
-};
 
 if (lang == "ru") {
   document.body.prepend(
@@ -81,8 +68,6 @@ namePerson == "Артем"
   : namePerson == "Александр"
   ? console.log("Преподаватель")
   : console.log("Студент");
-
-console.log(argumentString(title));
 
 console.log(numArray);
 console.log(numMultiplication);
