@@ -2,6 +2,25 @@
 
 // Задание №1
 
+let servicePrice = prompt('Сколько будет стоить данная работа?');
+
+const isNumber = function (num) {
+  return !isNaN(parseFloat(num)) && isFinite(num);
+};
+
+const asking = function () {
+  while (!isNumber(servicePrice) || servicePrice == null) {
+    servicePrice = prompt('Сколько будет стоить данная работа?');
+  }
+};
+
+asking();
+
+servicePrice = parseFloat(servicePrice.replaceAll(' ', ''));
+
+console.log(servicePrice);
+console.log(typeof servicePrice);
+
 // Задание №2
 
 const arr = [123, 281, 456, 789, 489, 124, 255];
