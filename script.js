@@ -36,16 +36,13 @@ function updateSite() {
 
   if (nowDate.getHours() === 1 || nowDate.getHours() === 21) {
     hourText = 'час';
-    console.log('1 или 21 ' + nowDate.getHours() + hourText);
   } else if (
     (nowDate.getHours() > 4 && nowDate.getHours() < 21) ||
     nowDate.getHours() === 0
   ) {
     hourText = 'часов';
-    console.log('от 5 до 20 ' + nowDate.getHours() + hourText);
   } else {
     hourText = 'часа';
-    console.log('остальное ' + nowDate.getHours() + hourText);
   }
 
   a.innerHTML = `Сегодня ${week[nowDate.getDay()]}, ${nowDate.getDate()} ${
