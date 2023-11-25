@@ -26,23 +26,11 @@ const month = [
 ];
 
 let nowDate;
+let hourText;
 
-let hourText = function () {
-  if (nowDate.getHours() === 1 || nowDate.getHours() === 21) {
-    hourText = 'час';
-    console.log('1 или 21 ' + nowDate.getHours() + hourText);
-  } else if (
-    (nowDate.getHours() > 4 && nowDate.getHours() < 21) ||
-    nowDate.getHours() === 0
-  ) {
-    hourText = 'часов';
-    console.log('от 5 до 20 ' + nowDate.getHours() + hourText);
-  } else {
-    hourText = 'часа';
-    console.log('остальное ' + nowDate.getHours() + hourText);
-  }
-};
-/*
+const a = document.createElement('p');
+const b = document.createElement('p');
+
 function updateSite() {
   nowDate = new Date();
 
@@ -60,24 +48,18 @@ function updateSite() {
     console.log('остальное ' + nowDate.getHours() + hourText);
   }
 
-  document.body.append(
-    document.createTextNode(
-      `а) Сегодня ${week[nowDate.getDay()]}, ${nowDate.getDate()} ${
-        month[nowDate.getMonth()]
-      } ${nowDate.getFullYear()} года, ${nowDate.getHours()} ${hourText} ${nowDate.getMinutes()} минуты ${nowDate.getSeconds()} секунды
-    б) ${new Intl.DateTimeFormat('ru').format(
-      nowDate
-    )} - ${new Intl.DateTimeFormat('ru', {
-        timeStyle: 'medium',
-      }).format(nowDate)}`
-    )
-  );
+  a.innerHTML = `Сегодня ${week[nowDate.getDay()]}, ${nowDate.getDate()} ${
+    month[nowDate.getMonth()]
+  } ${nowDate.getFullYear()} года, ${nowDate.getHours()} ${hourText} ${nowDate.getMinutes()} минуты ${nowDate.getSeconds()} секунды`;
+
+  b.innerHTML = `${new Intl.DateTimeFormat('ru').format(
+    nowDate
+  )} - ${new Intl.DateTimeFormat('ru', {
+    timeStyle: 'medium',
+  }).format(nowDate)}`;
+
+  document.body.appendChild(a);
+  document.body.appendChild(b);
 }
 
-//document.createTextNode('Некоторый текст');
-
-//hourText();
-setInterval(updateSite, 3000);
-//console.log(nowDate.getHours());
-//console.log(new Intl.DateTimeFormat('ru').format(nowDate));
-*/
+setInterval(updateSite, 1000);
