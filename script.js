@@ -30,6 +30,7 @@ let hourText;
 
 const a = document.createElement('p');
 const b = document.createElement('p');
+const c = document.createElement('p');
 
 function updateSite() {
   nowDate = new Date();
@@ -45,6 +46,36 @@ function updateSite() {
     hourText = 'часа';
   }
 
+  const numSeconds = nowDate.getSeconds();
+  let appendNullSeconds = numSeconds;
+  appendNullSeconds > -1 && appendNullSeconds < 10
+    ? (appendNullSeconds = `${'0' + numSeconds}`)
+    : (appendNullSeconds = `${numSeconds}`);
+
+  const numMinutes = nowDate.getMinutes();
+  let appendNullMinutes = numMinutes;
+  appendNullMinutes > -1 && appendNullMinutes < 10
+    ? (appendNullMinutes = `${'0' + numMinutes}`)
+    : (appendNullMinutes = `${numMinutes}`);
+
+  const numHours = nowDate.getHours();
+  let appendNullHours = numHours;
+  appendNullHours > -1 && appendNullHours < 10
+    ? (appendNullHours = `${'0' + numHours}`)
+    : (appendNullHours = `${numHours}`);
+
+  const numMonth = nowDate.getMonth();
+  let appendNullMonth = numMonth;
+  appendNullMonth > -1 && appendNullMonth < 10
+    ? (appendNullMonth = `${'0' + (numMonth + 1)}`)
+    : (appendNullMonth = `${numMonth + 1}`);
+
+  const numDate = nowDate.getDate();
+  let appendNullDate = numDate;
+  appendNullDate > -1 && appendNullDate < 10
+    ? (appendNullDate = `${'0' + numHours}`)
+    : (appendNullDate = `${numDate}`);
+
   a.innerHTML = `Сегодня ${week[nowDate.getDay()]}, ${nowDate.getDate()} ${
     month[nowDate.getMonth()]
   } ${nowDate.getFullYear()} года, ${nowDate.getHours()} ${hourText} ${nowDate.getMinutes()} минуты ${nowDate.getSeconds()} секунды`;
@@ -55,8 +86,11 @@ function updateSite() {
     timeStyle: 'medium',
   }).format(nowDate)}`;
 
-  document.body.appendChild(a);
-  document.body.appendChild(b);
+  c.innerHTML = `${appendNullDate}.${appendNullMonth}.${nowDate.getFullYear()} - ${appendNullHours}:${appendNullMinutes}:${appendNullSeconds}`;
+
+  document.body.append(a);
+  document.body.append(b);
+  document.body.append(c);
 }
 
 setInterval(updateSite, 1000);
